@@ -1,0 +1,2 @@
+*OO2*
+´NO TOMAR LAS SOLUCIONES COMO GUIA (tire fruta)´
