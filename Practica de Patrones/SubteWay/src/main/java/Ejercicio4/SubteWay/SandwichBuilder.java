@@ -18,5 +18,8 @@ public abstract class SandwichBuilder {
 	public Sandwich getResult () {
 		return this.sandwich;
 	}
-
+	
+	public void reset () {
+		this.sandwich = new Sandwich();
+	}
 }

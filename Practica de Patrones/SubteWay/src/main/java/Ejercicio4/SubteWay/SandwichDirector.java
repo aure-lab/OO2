@@ -8,6 +8,7 @@ public class SandwichDirector {
 	}
 	
 	public Sandwich construct () {
+		this.sandwichBuilder.reset();
 		this.sandwichBuilder.buildPan();
 		this.sandwichBuilder.buildAderezo();
 		this.sandwichBuilder.buildPrincipal();

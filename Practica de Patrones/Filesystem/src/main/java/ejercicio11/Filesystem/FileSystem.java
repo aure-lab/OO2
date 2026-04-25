@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FileSystem {
-	private List<Elemento> elementos;
+	private Directorio raiz = new Directorio("");
 	
 		  public int tamanoTotalOcupado() {
-			  return this.elementos.stream().mapToInt(E -> E.getTamaño()).sum();
+			  return this.raiz.getTamaño();
 		  }
 
 		  /**
@@ -17,8 +17,7 @@ public class FileSystem {
 		   * filesystem 
 		   */
 		  public Archivo archivoMasGrande() {
-			  return this.elementos.stream().map(E -> E.masPesado()).
-					  max(Comparator.comparing(Archivo :: getTamaño)).orElse(null);
+			  return this.raiz.masPesado();
 		  }
 
 		  /**
@@ -26,8 +25,7 @@ public class FileSystem {
 		   * del filesystem
 		   */
 		  public Archivo archivoMasNuevo() {
-			  return this.elementos.stream().map(E -> E.masNuevo()).
-					  max(Comparator.comparing(Archivo :: getFechaDeCreacion)).orElse(null);
+			  return this.raiz.masNuevo();
 		  }
 
 		  /**
@@ -35,7 +33,7 @@ public class FileSystem {
 		   * nivel del filesystem
 		   */
 		  public Elemento buscar(String nombre){
-			  return this.elementos.stream().filter(E -> E.iguales(nombre)).findFirst().orElse(null);
+			  return this.raiz.todasLasCoincicidencias(nombre).getFirst(); 
 		  }
 
 		  /**
@@ -43,9 +41,7 @@ public class FileSystem {
 		   * contenido en cualquier nivel del filesystem
 		   */
 		  public List<Elemento> buscarTodos(String nombre){
-			  List<Elemento> l = new LinkedList<>();
-			  this.elementos.stream().forEach(E -> l.addAll(E.todasLasCoincicidencias(nombre)));
-			  return l;
+			  return this.raiz.todasLasCoincicidencias(nombre);
 		  }
 
 		  /**
@@ -61,8 +57,7 @@ public class FileSystem {
 		/Directorio B
 		   */
 		  public String listadoDeContenido() {
-			  return this.elementos.stream().map(e -> e.toString())
-		        .collect(Collectors.joining());
+			  return this.raiz.toString();
 		  }
 
 

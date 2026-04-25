@@ -23,7 +23,6 @@ public class VeganoBuilder extends SandwichBuilder{
 
 	@Override
 	public void buildAdicinal() {
-		this.sandwich.agregarIngrediente(null);
 	}
 	
 	
