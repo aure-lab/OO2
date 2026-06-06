@@ -47,6 +47,18 @@ public class Directorio extends Elemento{
 		this.contenido.stream().forEach(E -> l.addAll(E.todasLasCoincicidencias(nombre)));
 		return l;
 	}
+	
+	public void agregarElemento(Elemento e) {
+		this.contenido.add(e);
+	}
+	
+	public void quitarElemento(Elemento e) {
+		this.contenido.remove(e);
+	}
+	
+	public List<Elemento> getChildren(){
+		return this.contenido;
+	}
 
 	
 	

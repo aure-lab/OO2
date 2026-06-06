@@ -7,7 +7,8 @@ public class Similaridad implements Configuracion{
 	@Override
 	public List<Pelicula> aplicarCriterio(Decodificador decodificador) {
 		return decodificador.getGrilla().stream()
-				.filter(p -> decodificador.vista(p)).flatMap(p -> p.getSimilares().stream())
+				.filter(p -> decodificador.vista(p)).flatMap(p -> p.getSimilares().stream()
+						.filter(pe -> decodificador.vista(pe)))
 				.limit(3).toList();
 	}
 

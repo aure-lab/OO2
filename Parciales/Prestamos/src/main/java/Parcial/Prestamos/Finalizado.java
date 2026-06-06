@@ -1,0 +1,15 @@
+package Parcial.Prestamos;
+
+public class Finalizado implements Estado{
+	
+	@Override
+	public void pagarCuota(Prestamo prestamo) {
+		throw new Error ("Error");
+	}
+
+	@Override
+	public double gastosDeCancelacion(Prestamo prestamo) {
+		return 0;
+	}
+
+}
